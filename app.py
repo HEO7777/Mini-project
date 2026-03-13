@@ -20,7 +20,22 @@ def page_overview():
     st.write(f"Boot Time: {datetime.fromtimestamp(psutil.boot_time()).strftime('%Y-%m-%d %H:%M:%S')}")
 
 def page_processes():
-    pass
+    st.header("⚙️ Running Processes")
+    st.write("Top 20 Processes by Memory Usage")
+    
+    # 프로세스 목록 가져오기
+    processes = []
+    for proc in psutil.process_iter(['pid', 'name', 'memory_percent']):
+        try:
+            processes.append(proc.info)
+        except (psutil.NoSuchProcess, psutil.AccessDenied):
+            pass
+            
+    # 데이터프레임으로 변환 후 정렬
+    df = pd.DataFrame(processes)
+    df = df.sort_values(by='memory_percent', ascending=False).head(20)
+    df['memory_percent'] = df['memory_percent'].round(2)
+    st.dataframe(df, use_container_width=True)
 
 def page_disk_network():
     pass
