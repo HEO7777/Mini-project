@@ -38,7 +38,24 @@ def page_processes():
     st.dataframe(df, use_container_width=True)
 
 def page_disk_network():
-    pass
+    st.header("💾 Disk & 🌐 Network")
+    
+    # 디스크 정보
+    st.subheader("Disk Usage")
+    disk = psutil.disk_usage('/')
+    st.progress(disk.percent / 100.0)
+    st.write(f"Used: {disk.percent}% | Total: {disk.total / (1024**3):.1f} GB")
+    
+    st.divider()
+    
+    # 네트워크 정보
+    st.subheader("Network IO")
+    net = psutil.net_io_counters()
+    col1, col2 = st.columns(2)
+    with col1:
+        st.info(f"Bytes Sent: {net.bytes_sent / (1024**2):.2f} MB")
+    with col2:
+        st.info(f"Bytes Received: {net.bytes_recv / (1024**2):.2f} MB")
 
 # 사이드바 네비게이션
 st.sidebar.title("Navigation")
