@@ -13,3 +13,7 @@ This project is a mini-project that will be further developed into a comprehensi
 1. Install the dependencies:
    ```bash
    pip install -r requirements.txt
+
+2. Run the Streamlit application:
+   ```bash
+   streamlit run app.py
