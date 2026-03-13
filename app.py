@@ -12,7 +12,7 @@ def page_overview():
     # CPU & RAM 정보
     col1, col2 = st.columns(2)
     with col1:
-        st.metric(label="CPU Usage", value=f"{psutil.cpu_percent()}%")
+        st.metric(label="CPU Usage", value=f"{psutil.cpu_percent(interval=0.5)}%")
     with col2:
         ram = psutil.virtual_memory()
         st.metric(label="RAM Usage", value=f"{ram.percent}%", delta=f"Total: {ram.total / (1024**3):.1f} GB")
