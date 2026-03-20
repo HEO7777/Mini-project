@@ -1,5 +1,7 @@
 streamlit
 psutil
 pandas
+Flask
+requests
 pytest
 pytest-flask
