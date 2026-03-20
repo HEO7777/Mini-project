@@ -2,6 +2,7 @@ import streamlit as st
 import psutil
 import pandas as pd
 from datetime import datetime
+import requests
 
 # 페이지 기본 설정
 st.set_page_config(page_title="System Monitor", layout="wide")
@@ -57,9 +58,33 @@ def page_disk_network():
     with col2:
         st.info(f"Bytes Received: {net.bytes_recv / (1024**2):.2f} MB")
 
+def page_kill_process():
+    st.header("🚀 Process Management")
+
+    # 클라이언트 측 1차 검증 (Number Input의 min_value 사용)
+    pid_to_kill = st.number_input("Enter PID to terminate", min_value=2, step=1)
+
+    if st.button("Kill Process"):
+        # API 서버(Flask)로 요청 보내기
+        try:
+            response = requests.post(
+                "http://127.0.0.1:5000/api/process/kill",
+                json={"pid": int(pid_to_kill)}
+            )
+            
+            if response.status_code == 200:
+                st.success(response.json().get("message"))
+            elif response.status_code == 403:
+                st.error(f"Security Alert: {response.json().get('error')}")
+            else:
+                st.warning(f"Failed: {response.json().get('error')}")
+                
+        except requests.exceptions.ConnectionError:
+            st.error("Backend server (Flask) is not running!")
+
 # 사이드바 네비게이션
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Overview", "Processes", "Disk & Network"])
+page = st.sidebar.radio("Go to", ["Overview", "Processes", "Disk & Network", "Kill Process"])
 
 # 페이지 라우팅
 if page == "Overview":
@@ -68,3 +93,5 @@ elif page == "Processes":
     page_processes()
 elif page == "Disk & Network":
     page_disk_network()
+elif page == "Kill Process":
+    page_kill_process()
