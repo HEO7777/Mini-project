@@ -17,9 +17,7 @@ def kill_process():
     if not isinstance(pid, int) or pid <= 0:
         return jsonify({"error": "Invalid PID format"}), 400
     
-    # 3. 보안 검증 (System Critical Process Protection)
-    if pid == 1:
-        return jsonify({"error": "Protected process"}), 403
+    # 3. 보안 검증은 서비스 레이어(system_monitor.terminate_pid)에서 수행
 
     # 4. 프로세스 종료 로직 실행
     try:
@@ -27,12 +25,10 @@ def kill_process():
         return jsonify({"message": f"Process {pid} terminated successfully"}), 200
     except ValueError:
         return jsonify({"error": "Invalid PID format"}), 400
-    except PermissionError:
-        return jsonify({"error": "Protected process"}), 403
-    except psutil.NoSuchProcess:
+    except PermissionError as e:
+        return jsonify({"error": str(e)}), 403
+    except FileNotFoundError:
         return jsonify({"error": "Process not found"}), 404
-    except psutil.AccessDenied:
-        return jsonify({"error": "Permission denied"}), 403
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

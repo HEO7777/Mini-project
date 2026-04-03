@@ -54,12 +54,17 @@ def has_valid_pid(pid):
 
 
 def terminate_pid(pid):
-    if not has_valid_pid(pid):
-        raise ValueError("Invalid PID format")
-
     if pid == 1:
         raise PermissionError("Protected process")
 
-    process = psutil.Process(pid)
-    process.terminate()
-    return True
+    if not has_valid_pid(pid):
+        raise ValueError("Invalid PID format")
+
+    try:
+        process = psutil.Process(pid)
+        process.terminate()
+        return True
+    except psutil.NoSuchProcess:
+        raise FileNotFoundError("Process not found")
+    except psutil.AccessDenied:
+        raise PermissionError("Permission denied")
