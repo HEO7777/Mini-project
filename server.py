@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import psutil
+from system_monitor import terminate_pid
 
 app = Flask(__name__)
 
@@ -23,9 +23,12 @@ def kill_process():
 
     # 4. 프로세스 종료 로직 실행
     try:
-        process = psutil.Process(pid)
-        process.terminate()  # 또는 process.kill()
+        terminate_pid(pid)
         return jsonify({"message": f"Process {pid} terminated successfully"}), 200
+    except ValueError:
+        return jsonify({"error": "Invalid PID format"}), 400
+    except PermissionError:
+        return jsonify({"error": "Protected process"}), 403
     except psutil.NoSuchProcess:
         return jsonify({"error": "Process not found"}), 404
     except psutil.AccessDenied:
