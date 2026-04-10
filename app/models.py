@@ -1,4 +1,3 @@
-from app.models import *
 """System monitoring helpers for CPU, RAM, disk, network, and process control."""
 
 import psutil

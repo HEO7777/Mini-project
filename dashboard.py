@@ -1,6 +1,8 @@
+"""Streamlit front end for the system monitoring dashboard."""
+
 import streamlit as st
 import requests
-from system_monitor import (
+from app.models import (
     get_cpu_usage,
     get_ram_usage,
     get_boot_time,
@@ -15,6 +17,7 @@ KILL_PROCESS_URL = "http://127.0.0.1:5000/api/process/kill"
 st.set_page_config(page_title="System Monitor", layout="wide")
 
 def page_overview():
+    """Render the Overview page with CPU, RAM, and system boot metrics."""
     st.header("🖥️ System Overview")
     col1, col2 = st.columns(2)
     with col1:
@@ -26,6 +29,7 @@ def page_overview():
     st.write(f"Boot Time: {get_boot_time().strftime('%Y-%m-%d %H:%M:%S')}")
 
 def page_processes():
+    """Render the process monitoring page with the top memory-consuming processes."""
     st.header("⚙️ Running Processes")
     st.write("Top 20 Processes by Memory Usage")
 
@@ -33,6 +37,7 @@ def page_processes():
     st.dataframe(df, use_container_width=True)
 
 def page_disk_network():
+    """Render disk and network statistics with interactive Streamlit elements."""
     st.header("💾 Disk & 🌐 Network")
 
     st.subheader("Disk Usage")
@@ -51,6 +56,7 @@ def page_disk_network():
         st.info(f"Bytes Received: {net['bytes_recv_mb']:.2f} MB")
 
 def page_kill_process():
+    """Render the kill-process page and forward the PID kill request to the Flask backend."""
     st.header("🚀 Process Management")
     pid_to_kill = st.number_input("Enter PID to terminate", min_value=2, step=1)
 

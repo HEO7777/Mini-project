@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>app package &mdash; System Resource Dashboard  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="app" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            System Resource Dashboard
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">app</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">app package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.models">app.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.get_cpu_usage"><code class="docutils literal notranslate"><span class="pre">get_cpu_usage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.get_ram_usage"><code class="docutils literal notranslate"><span class="pre">get_ram_usage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.get_boot_time"><code class="docutils literal notranslate"><span class="pre">get_boot_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.get_top_processes"><code class="docutils literal notranslate"><span class="pre">get_top_processes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.get_disk_usage"><code class="docutils literal notranslate"><span class="pre">get_disk_usage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.get_network_io"><code class="docutils literal notranslate"><span class="pre">get_network_io()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.has_valid_pid"><code class="docutils literal notranslate"><span class="pre">has_valid_pid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.models.terminate_pid"><code class="docutils literal notranslate"><span class="pre">terminate_pid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app.routes">app.routes module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.routes.kill_process"><code class="docutils literal notranslate"><span class="pre">kill_process()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">System Resource Dashboard</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">app</a></li>
+      <li class="breadcrumb-item active">app package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="app-package">
+<h1>app package<a class="headerlink" href="#app-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-app.models">
+<span id="app-models-module"></span><h2>app.models module<a class="headerlink" href="#module-app.models" title="Link to this heading"></a></h2>
+<p>System monitoring helpers for CPU, RAM, disk, network, and process control.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.models.get_cpu_usage">
+<span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">get_cpu_usage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#get_cpu_usage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.get_cpu_usage" title="Link to this definition"></a></dt>
+<dd><p>Return the current CPU utilization percentage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>interval</strong> (<em>float</em>) – Sampling interval in seconds for CPU measurement.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>CPU usage percentage.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.models.get_ram_usage">
+<span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">get_ram_usage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#get_ram_usage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.get_ram_usage" title="Link to this definition"></a></dt>
+<dd><p>Return RAM usage details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>RAM usage summary with percent and total memory in gigabytes.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.models.get_boot_time">
+<span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">get_boot_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#get_boot_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.get_boot_time" title="Link to this definition"></a></dt>
+<dd><p>Return the system boot time as a datetime object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The time at which the system was last booted.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>datetime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.models.get_top_processes">
+<span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">get_top_processes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#get_top_processes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.get_top_processes" title="Link to this definition"></a></dt>
+<dd><p>Return the top running processes sorted by memory usage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>limit</strong> (<em>int</em>) – Number of processes to return.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Process list with pid, name, and memory_percent.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.models.get_disk_usage">
+<span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">get_disk_usage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#get_disk_usage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.get_disk_usage" title="Link to this definition"></a></dt>
+<dd><p>Return disk usage metrics for a given filesystem path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Filesystem path to inspect.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Disk usage summary with percent used and total size in gigabytes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.models.get_network_io">
+<span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">get_network_io</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#get_network_io"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.get_network_io" title="Link to this definition"></a></dt>
+<dd><p>Return network input/output statistics since boot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Network IO summary with bytes sent and received in megabytes.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.models.has_valid_pid">
+<span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">has_valid_pid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#has_valid_pid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.has_valid_pid" title="Link to this definition"></a></dt>
+<dd><p>Validate whether a PID is safe to attempt termination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pid</strong> (<em>int</em>) – Process identifier to validate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if pid is a valid integer greater than 1.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.models.terminate_pid">
+<span class="sig-prename descclassname"><span class="pre">app.models.</span></span><span class="sig-name descname"><span class="pre">terminate_pid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/models.html#terminate_pid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.models.terminate_pid" title="Link to this definition"></a></dt>
+<dd><p>Attempt to terminate a process by PID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pid</strong> (<em>int</em>) – Process identifier to terminate.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>PermissionError</strong> – If the PID is protected or access is denied.</p></li>
+<li><p><strong>ValueError</strong> – If pid is invalid.</p></li>
+<li><p><strong>FileNotFoundError</strong> – If the process does not exist.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the termination request was issued.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-app.routes">
+<span id="app-routes-module"></span><h2>app.routes module<a class="headerlink" href="#module-app.routes" title="Link to this heading"></a></h2>
+<p>Flask route definitions for the system monitor API.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.routes.kill_process">
+<span class="sig-prename descclassname"><span class="pre">app.routes.</span></span><span class="sig-name descname"><span class="pre">kill_process</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/app/routes.html#kill_process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.routes.kill_process" title="Link to this definition"></a></dt>
+<dd><p>Terminate a process by PID.</p>
+<p>This endpoint accepts a JSON payload with a single integer property <cite>pid</cite>.
+It validates the request body, then forwards the termination request to the
+service layer in <cite>app.models</cite>.</p>
+<p>—
+post:</p>
+<blockquote>
+<div><p>summary: Terminate a process by PID
+requestBody:</p>
+<blockquote>
+<div><p>required: true
+content:</p>
+<blockquote>
+<div><dl>
+<dt>application/json:</dt><dd><dl>
+<dt>schema:</dt><dd><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>pid:</dt><dd><p>type: integer
+example: 1234</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Process terminated successfully
+content:</p>
+<blockquote>
+<div><dl>
+<dt>application/json:</dt><dd><dl>
+<dt>schema:</dt><dd><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>message:</dt><dd><p>type: string</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>400:</dt><dd><p>description: Bad request payload or invalid PID
+content:</p>
+<blockquote>
+<div><dl>
+<dt>application/json:</dt><dd><dl>
+<dt>schema:</dt><dd><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>error:</dt><dd><p>type: string</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>403:</dt><dd><p>description: Permission denied while terminating the process
+content:</p>
+<blockquote>
+<div><dl>
+<dt>application/json:</dt><dd><dl>
+<dt>schema:</dt><dd><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>error:</dt><dd><p>type: string</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>404:</dt><dd><p>description: Process not found
+content:</p>
+<blockquote>
+<div><dl>
+<dt>application/json:</dt><dd><dl>
+<dt>schema:</dt><dd><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>error:</dt><dd><p>type: string</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>500:</dt><dd><p>description: Internal server error
+content:</p>
+<blockquote>
+<div><dl>
+<dt>application/json:</dt><dd><dl>
+<dt>schema:</dt><dd><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>error:</dt><dd><p>type: string</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="module-app">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app" title="Link to this heading"></a></h2>
+<p>Application package initialization for the Flask backend.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="app" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

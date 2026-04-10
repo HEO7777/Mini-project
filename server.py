@@ -1,12 +1,79 @@
-from flask import Flask, request, jsonify
-from system_monitor import terminate_pid
+"""Flask API entrypoint wrapper for the app package."""
 
-app = Flask(__name__)
+from app import app
+from flask import request, jsonify
+from app.models import terminate_pid
 
 @app.route('/api/process/kill', methods=['POST'])
 def kill_process():
+    """Terminate a process by PID.
+
+    This endpoint accepts a JSON payload with a single integer property `pid`.
+    It validates the request body, then forwards the termination request to the
+    service layer in `app.models`.
+
+    ---
+    post:
+      summary: Terminate a process by PID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pid:
+                  type: integer
+                  example: 1234
+      responses:
+        200:
+          description: Process terminated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        400:
+          description: Bad request payload or invalid PID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        403:
+          description: Permission denied while terminating the process
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        404:
+          description: Process not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+    """
     data = request.get_json()
-    
+
     # 1. 클라이언트 데이터 검증 (Client-side verification logic simulation)
     if not data or 'pid' not in data:
         return jsonify({"error": "No PID provided"}), 400

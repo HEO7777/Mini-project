@@ -2,6 +2,9 @@ streamlit
 psutil
 pandas
 Flask
+Flasgger
 requests
 pytest
 pytest-flask
+sphinx
+sphinx-rtd-theme
